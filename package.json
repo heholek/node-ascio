@@ -1,0 +1,31 @@
+{
+  "name": "ascio",
+  "description": "Nodejs ASCIO AWS",
+  "version": "0.0.1",
+  "author": "Pedro Dias <petermdias@gmail.com>",
+  "maintainers": [
+    "apocas <petermdias@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/apocas/node-ascio.git"
+  },
+  "keywords": [
+    "ascio",
+    "domains"
+  ],
+  "dependencies": {
+    "soap": "*"
+  },
+  "devDependencies": {
+    "chai": "~1.7.0",
+    "mocha": "~1.12.0"
+  },
+  "main": "./lib/ascio",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec"
+  },
+  "engines": {
+    "node": ">= 0.8"
+  }
+}
