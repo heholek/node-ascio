@@ -15,7 +15,8 @@
     "domains"
   ],
   "dependencies": {
-    "soap": "*"
+    "soap": "*",
+    "debug": "*"
   },
   "devDependencies": {
     "chai": "~1.7.0",
