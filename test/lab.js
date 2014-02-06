@@ -6,5 +6,10 @@ ascio.on('ready', function () {
   ascio.login(process.env.ASCIO_USERNAME, process.env.ASCIO_PASSWORD, function(err, sessionid) {
     if(err) throw err;
     console.log(sessionid);
+
+    ascio.logout(sessionid, function(err, msg) {
+      if(err) throw err;
+      console.log(msg);
+    });
   });
 });
