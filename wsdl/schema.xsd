@@ -1,1011 +1,1042 @@
 <xsd:schema xmlns="http://www.ascio.com/2007/01" xmlns:tns2="http://www.ascio.com/2007/01" xmlns:tns="http://www.ascio.com/2007/01" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ascio.com/2007/01">
-    <xsd:import schemaLocation="https://awstest.ascio.com/2012/01/01/arrays.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-    <xsd:element name="LogIn">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element ref="session" minOccurs="0"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="session" nillable="true" type="tns2:Session"/>
-    <xsd:complexType name="Session">
-        <xsd:sequence>
-            <xsd:element name="Account" nillable="true" type="xsd:string"/>
-            <xsd:element name="Password" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  <xsd:import schemaLocation="https://aws.ascio.com/2012/01/01/arrays.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xsd:element name="LogIn">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="session" minOccurs="0" nillable="true" type="tns2:Session"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Session" nillable="true" type="tns2:Session"/>
-    <xsd:element name="LogInResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="LogInResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="Response">
-        <xsd:sequence>
-            <xsd:element name="Message" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="ResultCode" minOccurs="0" type="xsd:short"/>
-            <xsd:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Values" maxOccurs="1" minOccurs="0" nillable="true" type="q1:ArrayOfstring"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="Session">
+    <xsd:sequence>
+      <xsd:element name="Account" nillable="true" type="xsd:string"/>
+      <xsd:element name="Password" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Session" nillable="true" type="tns2:Session"/>
+  <xsd:element name="LogInResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="LogInResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Response" nillable="true" type="tns2:Response"/>
-    <xsd:element name="LogOut">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="LogOutResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="LogOutResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetOrder">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetOrderResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="Order">
-        <xsd:sequence>
-            <xsd:element name="OrderId" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Type" type="tns2:OrderType"/>
-            <xsd:element name="AccountReference" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Status" minOccurs="0" type="tns2:OrderStatusType"/>
-            <xsd:element name="TransactionComment" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Comments" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Options" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="LocalPresence" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Batch" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Documentation" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Domain" minOccurs="0" nillable="true" type="tns2:Domain"/>
-            <xsd:element name="CreDate" minOccurs="0" nillable="true" type="xsd:dateTime"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="Response">
+    <xsd:sequence>
+      <xsd:element name="Message" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="ResultCode" minOccurs="0" type="xsd:short"/>
+      <xsd:element name="Values" maxOccurs="1" minOccurs="0" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Response" nillable="true" type="tns2:Response"/>
+  <xsd:element name="LogOut">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Order" nillable="true" type="tns2:Order"/>
-    <xsd:simpleType name="OrderType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="NotSet"/>
-            <xsd:enumeration value="Contact_Update"/>
-            <xsd:enumeration value="Change_Locks"/>
-            <xsd:enumeration value="Delete_Domain"/>
-            <xsd:enumeration value="Registrant_Details_Update"/>
-            <xsd:enumeration value="Expire_Domain"/>
-            <xsd:enumeration value="Nameserver_Update"/>
-            <xsd:enumeration value="Owner_Change"/>
-            <xsd:enumeration value="Queue_Domain"/>
-            <xsd:enumeration value="Register_Domain"/>
-            <xsd:enumeration value="Renew_Domain"/>
-            <xsd:enumeration value="Restore_Domain"/>
-            <xsd:enumeration value="Transfer_Domain"/>
-            <xsd:enumeration value="Unexpire_Domain"/>
-            <xsd:enumeration value="Transfer_Away"/>
-            <xsd:enumeration value="Autorenew_Domain"/>
-            <xsd:enumeration value="Autodelete_Domain"/>
-            <xsd:enumeration value="Defensive_Registration"/>
-            <xsd:enumeration value="Name_Watch"/>
-            <xsd:enumeration value="Domain_Details_Update"/>
-            <xsd:enumeration value="Import_Domain"/>
-            <xsd:enumeration value="Partner_Change"/>
-            <xsd:enumeration value="Support"/>
-            <xsd:enumeration value="DeQueue"/>
-            <xsd:enumeration value="Update_AuthInfo"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="OrderType" nillable="true" type="tns2:OrderType"/>
-    <xsd:simpleType name="OrderStatusType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="NotSet"/>
-            <xsd:enumeration value="Received"/>
-            <xsd:enumeration value="Validated"/>
-            <xsd:enumeration value="Invalid"/>
-            <xsd:enumeration value="Pending"/>
-            <xsd:enumeration value="Processing"/>
-            <xsd:enumeration value="Pending_Documentation"/>
-            <xsd:enumeration value="Pending_End_User_Action"/>
-            <xsd:enumeration value="Documentation_Received"/>
-            <xsd:enumeration value="Documentation_Approved"/>
-            <xsd:enumeration value="Documentation_Not_Approved"/>
-            <xsd:enumeration value="Pending_NIC_Processing"/>
-            <xsd:enumeration value="Pending_NIC_Document_Approval"/>
-            <xsd:enumeration value="Pending_Post_Processing"/>
-            <xsd:enumeration value="Pending_Internal_Processing"/>
-            <xsd:enumeration value="Completed"/>
-            <xsd:enumeration value="Failed"/>
-            <xsd:enumeration value="Authentication_Failed"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="OrderStatusType" nillable="true" type="tns2:OrderStatusType"/>
-    <xsd:complexType name="Domain">
-        <xsd:sequence>
-            <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DomainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="RegPeriod" minOccurs="0" nillable="true" type="xsd:int">
-                <xsd:annotation>
-                    <xsd:appinfo>
-                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
-                    </xsd:appinfo>
-                </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="RenewPeriod" minOccurs="0" nillable="true" type="xsd:int">
-                <xsd:annotation>
-                    <xsd:appinfo>
-                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
-                    </xsd:appinfo>
-                </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="AuthInfo" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="ExpDate" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="EncodingType" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DomainPurpose" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Comment" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="TransferLock" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DeleteLock" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="UpdateLock" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="QueueType" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
-            <xsd:element name="AdminContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            <xsd:element name="TechContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            <xsd:element name="BillingContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            <xsd:element name="ResellerContact" minOccurs="0" nillable="true" type="tns2:Contact">
-                <xsd:annotation>
-                    <xsd:appinfo>
-                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
-                    </xsd:appinfo>
-                </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="NameServers" minOccurs="0" nillable="true" type="tns2:NameServers"/>
-            <xsd:element name="Trademark" minOccurs="0" nillable="true" type="tns2:TradeMark"/>
-            <xsd:element name="DnsSecKeys" minOccurs="0" nillable="true" type="tns2:DnsSecKeys">
-                <xsd:annotation>
-                    <xsd:appinfo>
-                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
-                    </xsd:appinfo>
-                </xsd:annotation>
-            </xsd:element>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="LogOutResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="LogOutResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Domain" nillable="true" type="tns2:Domain"/>
-    <xsd:complexType name="Registrant">
-        <xsd:sequence>
-            <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Name" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="OrgName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Address1" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Address2" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="City" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="State" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="PostalCode" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="CountryCode" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Email" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Phone" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Fax" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="RegistrantType" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="VatNumber" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="RegistrantDate" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="NexusCategory" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="RegistrantNumber" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Details" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="GetOrder">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Registrant" nillable="true" type="tns2:Registrant"/>
-    <xsd:complexType name="Contact">
-        <xsd:sequence>
-            <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="FirstName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="LastName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="OrgName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Address1" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Address2" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="PostalCode" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="City" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="State" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="CountryCode" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Email" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Phone" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Fax" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Type" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Details" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="OrganisationNumber" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="GetOrderResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Contact" nillable="true" type="tns2:Contact"/>
-    <xsd:complexType name="NameServers">
-        <xsd:sequence>
-            <xsd:element name="NameServer1" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer2" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer3" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer4" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer5" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer6" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer7" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer8" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer9" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer10" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer11" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer12" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            <xsd:element name="NameServer13" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="Order">
+    <xsd:sequence>
+      <xsd:element name="OrderId" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Type" type="tns2:OrderType"/>
+      <xsd:element name="AccountReference" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Status" minOccurs="0" type="tns2:OrderStatusType"/>
+      <xsd:element name="TransactionComment" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Comments" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Options" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="LocalPresence" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Batch" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Documentation" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Domain" minOccurs="0" nillable="true" type="tns2:Domain"/>
+      <xsd:element name="CreDate" minOccurs="0" nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Order" nillable="true" type="tns2:Order"/>
+  <xsd:simpleType name="OrderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NotSet"/>
+      <xsd:enumeration value="Contact_Update"/>
+      <xsd:enumeration value="Change_Locks"/>
+      <xsd:enumeration value="Delete_Domain"/>
+      <xsd:enumeration value="Registrant_Details_Update"/>
+      <xsd:enumeration value="Expire_Domain"/>
+      <xsd:enumeration value="Nameserver_Update"/>
+      <xsd:enumeration value="Owner_Change"/>
+      <xsd:enumeration value="Queue_Domain"/>
+      <xsd:enumeration value="Register_Domain"/>
+      <xsd:enumeration value="Renew_Domain"/>
+      <xsd:enumeration value="Restore_Domain"/>
+      <xsd:enumeration value="Transfer_Domain"/>
+      <xsd:enumeration value="Unexpire_Domain"/>
+      <xsd:enumeration value="Transfer_Away"/>
+      <xsd:enumeration value="Autorenew_Domain"/>
+      <xsd:enumeration value="Autodelete_Domain"/>
+      <xsd:enumeration value="Defensive_Registration"/>
+      <xsd:enumeration value="Name_Watch"/>
+      <xsd:enumeration value="Domain_Details_Update"/>
+      <xsd:enumeration value="Import_Domain"/>
+      <xsd:enumeration value="Partner_Change"/>
+      <xsd:enumeration value="Support" />
+      <xsd:enumeration value="DeQueue" />
+      <xsd:enumeration value="Update_AuthInfo" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="OrderType" nillable="true" type="tns2:OrderType"/>
+  <xsd:simpleType name="OrderStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NotSet"/>
+      <xsd:enumeration value="Received"/>
+      <xsd:enumeration value="Validated"/>
+      <xsd:enumeration value="Invalid"/>
+      <xsd:enumeration value="Pending"/>
+      <xsd:enumeration value="Processing"/>
+      <xsd:enumeration value="Pending_Documentation"/>
+      <xsd:enumeration value="Pending_End_User_Action"/>
+      <xsd:enumeration value="Documentation_Received"/>
+      <xsd:enumeration value="Documentation_Approved"/>
+      <xsd:enumeration value="Documentation_Not_Approved"/>
+      <xsd:enumeration value="Pending_NIC_Processing"/>
+      <xsd:enumeration value="Pending_NIC_Document_Approval"/>
+      <xsd:enumeration value="Pending_Post_Processing"/>
+      <xsd:enumeration value="Pending_Internal_Processing"/>
+      <xsd:enumeration value="Completed"/>
+      <xsd:enumeration value="Failed"/>
+      <xsd:enumeration value="Authentication_Failed"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="OrderStatusType" nillable="true" type="tns2:OrderStatusType"/>
+  <xsd:complexType name="Domain">
+    <xsd:sequence>
+      <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DomainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="RegPeriod" minOccurs="0" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RenewPeriod" minOccurs="0" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="AuthInfo" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="ExpDate" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="EncodingType" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DomainPurpose" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Comment" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="TransferLock" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DeleteLock" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="UpdateLock" minOccurs="0" nillable="true" type="xsd:string"/>          
+      <xsd:element name="QueueType" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
+      <xsd:element name="AdminContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      <xsd:element name="TechContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      <xsd:element name="BillingContact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      <xsd:element name="ResellerContact" minOccurs="0" nillable="true" type="tns2:Contact">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NameServers" minOccurs="0" nillable="true" type="tns2:NameServers"/>
+      <xsd:element name="Trademark" minOccurs="0" nillable="true" type="tns2:TradeMark"/>
+      <xsd:element name="DnsSecKeys" minOccurs="0" nillable="true" type="tns2:DnsSecKeys">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Domain" nillable="true" type="tns2:Domain"/>
+  <xsd:complexType name="Registrant">
+    <xsd:sequence>
+      <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Name" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="OrgName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Address1" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Address2" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="City" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="State" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="PostalCode" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="CountryCode" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Email" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Phone" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Fax" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="RegistrantType" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="VatNumber" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="RegistrantDate" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="NexusCategory" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="RegistrantNumber" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Details" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Registrant" nillable="true" type="tns2:Registrant"/>
+  <xsd:complexType name="Contact">
+    <xsd:sequence>
+      <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="FirstName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="LastName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="OrgName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Address1" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Address2" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="PostalCode" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="City" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="State" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="CountryCode" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Email" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Phone" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Fax" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Type" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Details" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="OrganisationNumber" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Contact" nillable="true" type="tns2:Contact"/>
+  <xsd:complexType name="NameServers">
+    <xsd:sequence>
+      <xsd:element name="NameServer1" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer2" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer3" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer4" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer5" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer6" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer7" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer8" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer9" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer10" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer11" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer12" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      <xsd:element name="NameServer13" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NameServers" nillable="true" type="tns2:NameServers"/>
+  <xsd:complexType name="NameServer">
+    <xsd:sequence>
+      <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="HostName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="IpAddress" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="IpV6Address" minOccurs="0" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Details" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NameServer" nillable="true" type="tns2:NameServer"/>
+  <xsd:complexType name="TradeMark">
+    <xsd:sequence>
+      <xsd:element name="Name" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Country" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Date" minOccurs="0" type="xsd:dateTime"/>
+      <xsd:element name="Number" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Type" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Contact" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="ContactLanguage" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DocumentationLanguage" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="SecondContact" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="ThirdContact" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="RegDate" minOccurs="0" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TradeMark" nillable="true" type="tns2:TradeMark"/>
+  <xsd:complexType name="DnsSecKeys">
+    <xsd:sequence>
+      <xsd:element name="DnsSecKey1" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      <xsd:element name="DnsSecKey2" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      <xsd:element name="DnsSecKey3" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      <xsd:element name="DnsSecKey4" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      <xsd:element name="DnsSecKey5" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="DnsSecKeys" nillable="true" type="tns2:DnsSecKeys"/>
+  <xsd:complexType name="DnsSecKey">
+    <xsd:sequence>
+      <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DigestAlgorithm" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DigestType" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Digest" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Protocol" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="KeyType" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="KeyAlgorithm" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="KeyTag" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="PublicKey" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="CreDate" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="DnsSecKey" nillable="true" type="tns2:DnsSecKey"/>
+  <xsd:element name="CreateOrder">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="NameServers" nillable="true" type="tns2:NameServers"/>
-    <xsd:complexType name="NameServer">
-        <xsd:sequence>
-            <xsd:element name="CreDate" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="HostName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="IpAddress" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="IpV6Address" minOccurs="0" nillable="true" type="xsd:string">
-                <xsd:annotation>
-                    <xsd:appinfo>
-                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false"/>
-                    </xsd:appinfo>
-                </xsd:annotation>
-            </xsd:element>
-            <xsd:element minOccurs="0" name="Details" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>         
+  <xsd:element name="CreateOrderResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="NameServer" nillable="true" type="tns2:NameServer"/>
-    <xsd:complexType name="TradeMark">
-        <xsd:sequence>
-            <xsd:element name="Name" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Country" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Date" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="Number" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Type" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Contact" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="ContactLanguage" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DocumentationLanguage" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="SecondContact" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="ThirdContact" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="RegDate" minOccurs="0" type="xsd:dateTime"/>
-        </xsd:sequence>
+  </xsd:element>       
+  <xsd:element name="SearchOrder">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="sessionId" nillable="true" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="orderRequest" nillable="true" type="tns2:SearchOrderRequest"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="TradeMark" nillable="true" type="tns2:TradeMark"/>
-    <xsd:complexType name="DnsSecKeys">
-        <xsd:sequence>
-            <xsd:element name="DnsSecKey1" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            <xsd:element name="DnsSecKey2" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            <xsd:element name="DnsSecKey3" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            <xsd:element name="DnsSecKey4" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            <xsd:element name="DnsSecKey5" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-        </xsd:sequence>
+  </xsd:element>
+      
+  <xsd:complexType name="SearchOrderRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="OrderTypes" nillable="true" type="tns2:ArrayOfOrderType"/>
+      <xsd:element minOccurs="0" name="OrderStatusTypes" nillable="true" type="tns2:ArrayOfOrderStatusType"/>
+      <xsd:element minOccurs="0" name="FromDate" nillable="true" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="ToDate" nillable="true" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="DomainName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TransactionComment" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Comments" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="IncludeDomainDetails" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="PageInfo" nillable="true" type="tns2:PagingInfo"/>
+      <xsd:element minOccurs="0" name="OrderSort" type="tns2:SearchOrderSortType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="SearchOrderRequest" nillable="true" type="tns2:SearchOrderRequest"/>
+      
+  <xsd:complexType name="ArrayOfOrderType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="OrderType" type="tns2:OrderType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+      
+  <xsd:element name="ArrayOfOrderType" nillable="true" type="tns2:ArrayOfOrderType"/>
+      
+  <xsd:complexType name="ArrayOfOrderStatusType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="OrderStatusType" type="tns2:OrderStatusType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="ArrayOfOrderStatusType" nillable="true" type="tns2:ArrayOfOrderStatusType"/>            
+            
+  <xsd:simpleType name="SearchOrderSortType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CreDateAsc"/>
+      <xsd:enumeration value="CreDateDesc"/>
+      <xsd:enumeration value="OrderIdAsc"/>
+      <xsd:enumeration value="OrderIdDesc"/>
+      <xsd:enumeration value="DomainNameAsc"/>
+      <xsd:enumeration value="DomainNameDesc"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+      
+  <xsd:element name="SearchOrderSortType" nillable="true" type="tns2:SearchOrderSortType"/>
+
+  <xsd:complexType name="PagingInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="PageIndex" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="PageSize" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="PagingInfo" nillable="true" type="tns2:PagingInfo"/>
+      
+  <xsd:element name="SearchOrderResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="SearchOrderResult" nillable="true" type="tns2:Response"/>
+        <xsd:element minOccurs="0" name="totalOrders" type="xsd:int"/>
+        <xsd:element minOccurs="0" name="orders" nillable="true" type="tns2:ArrayOfOrder"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="DnsSecKeys" nillable="true" type="tns2:DnsSecKeys"/>
-    <xsd:complexType name="DnsSecKey">
-        <xsd:sequence>
-            <xsd:element name="Handle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DigestAlgorithm" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DigestType" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Digest" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Protocol" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="KeyType" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="KeyAlgorithm" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="KeyTag" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="PublicKey" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="CreDate" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfOrder">
+    <xsd:sequence>
+      <xsd:element name="Order" minOccurs="0" nillable="true" type="tns2:Order" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>      
+  <xsd:element name="ArrayOfOrder" nillable="true" type="tns2:ArrayOfOrder"/>
+  <xsd:element name="GetMessages">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="DnsSecKey" nillable="true" type="tns2:DnsSecKey"/>
-    <xsd:element name="CreateOrder">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateOrderResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchOrder">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element minOccurs="0" name="sessionId" nillable="true" type="xsd:string"/>
-                <xsd:element minOccurs="0" name="orderRequest" nillable="true" type="tns2:SearchOrderRequest"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="SearchOrderRequest">
-        <xsd:sequence>
-            <xsd:element minOccurs="0" name="OrderTypes" nillable="true" type="tns2:ArrayOfOrderType"/>
-            <xsd:element minOccurs="0" name="OrderStatusTypes" nillable="true" type="tns2:ArrayOfOrderStatusType"/>
-            <xsd:element minOccurs="0" name="FromDate" nillable="true" type="xsd:dateTime"/>
-            <xsd:element minOccurs="0" name="ToDate" nillable="true" type="xsd:dateTime"/>
-            <xsd:element minOccurs="0" name="DomainName" nillable="true" type="xsd:string"/>
-            <xsd:element minOccurs="0" name="TransactionComment" nillable="true" type="xsd:string"/>
-            <xsd:element minOccurs="0" name="Comments" nillable="true" type="xsd:string"/>
-            <xsd:element minOccurs="0" name="IncludeDomainDetails" type="xsd:boolean"/>
-            <xsd:element minOccurs="0" name="PageInfo" nillable="true" type="tns2:PagingInfo"/>
-            <xsd:element minOccurs="0" name="OrderSort" type="tns2:SearchOrderSortType"/>
-        </xsd:sequence>
+  </xsd:element>      
+  <xsd:element name="GetMessagesResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetMessagesResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="messages" minOccurs="0" nillable="true" type="tns2:ArrayOfMessage"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="SearchOrderRequest" nillable="true" type="tns2:SearchOrderRequest"/>
-    <xsd:complexType name="ArrayOfOrderType">
-        <xsd:sequence>
-            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OrderType" type="tns2:OrderType"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfMessage">
+    <xsd:sequence>
+      <xsd:element name="Message" minOccurs="0" nillable="true" type="tns2:Message" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfMessage" nillable="true" type="tns2:ArrayOfMessage"/>
+  <xsd:complexType name="Message">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Attachments" nillable="true" type="tns2:ArrayOfAttachment"/>
+      <xsd:element minOccurs="0" name="Body" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Created" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="FromAddress" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Subject" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ToAddress" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Type" type="tns2:MessageType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Message" nillable="true" type="tns2:Message"/>
+  <xsd:complexType name="ArrayOfAttachment">
+    <xsd:sequence>
+      <xsd:element name="Attachment" minOccurs="0" nillable="true" type="tns2:Attachment" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfAttachment" nillable="true" type="tns2:ArrayOfAttachment"/>
+  <xsd:complexType name="Attachment">
+    <xsd:sequence>
+      <xsd:element name="Data" minOccurs="0" nillable="true" type="xsd:base64Binary"/>
+      <xsd:element name="FileName" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Attachment" nillable="true" type="tns2:Attachment"/>
+  <xsd:simpleType name="MessageType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Message_to_Partner" />
+      <xsd:enumeration value="Documentation_Request" />
+      <xsd:enumeration value="Order_mail" />
+      <xsd:enumeration value="Partner_Response" />
+      <xsd:enumeration value="Support" />
+      <xsd:enumeration value="Document" />
+      <xsd:enumeration value="ExpiryReminder1" />
+      <xsd:enumeration value="ExpiryReminder2" />
+      <xsd:enumeration value="ExpiryReminder3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="MessageType" nillable="true" type="tns2:MessageType"/>
+  <xsd:element name="ValidateOrder">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfOrderType" nillable="true" type="tns2:ArrayOfOrderType"/>
-    <xsd:complexType name="ArrayOfOrderStatusType">
-        <xsd:sequence>
-            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OrderStatusType" type="tns2:OrderStatusType"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="ValidateOrderResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ValidateOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfOrderStatusType" nillable="true" type="tns2:ArrayOfOrderStatusType"/>
-    <xsd:simpleType name="SearchOrderSortType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="CreDateAsc"/>
-            <xsd:enumeration value="CreDateDesc"/>
-            <xsd:enumeration value="OrderIdAsc"/>
-            <xsd:enumeration value="OrderIdDesc"/>
-            <xsd:enumeration value="DomainNameAsc"/>
-            <xsd:enumeration value="DomainNameDesc"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="SearchOrderSortType" nillable="true" type="tns2:SearchOrderSortType"/>
-    <xsd:complexType name="PagingInfo">
-        <xsd:sequence>
-            <xsd:element minOccurs="0" name="PageIndex" type="xsd:int"/>
-            <xsd:element minOccurs="0" name="PageSize" type="xsd:int"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="UploadDocumentation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="fileName" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="content" minOccurs="0" nillable="true" type="xsd:base64Binary"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="PagingInfo" nillable="true" type="tns2:PagingInfo"/>
-    <xsd:element name="SearchOrderResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element minOccurs="0" name="SearchOrderResult" nillable="true" type="tns2:Response"/>
-                <xsd:element minOccurs="0" name="totalOrders" type="xsd:int"/>
-                <xsd:element minOccurs="0" name="orders" nillable="true" type="tns2:ArrayOfOrder"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfOrder">
-        <xsd:sequence>
-            <xsd:element name="Order" minOccurs="0" nillable="true" type="tns2:Order" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="UploadDocumentationResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="UploadDocumentationResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfOrder" nillable="true" type="tns2:ArrayOfOrder"/>
-    <xsd:element name="GetMessages">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetMessagesResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetMessagesResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="messages" minOccurs="0" nillable="true" type="tns2:ArrayOfMessage"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfMessage">
-        <xsd:sequence>
-            <xsd:element name="Message" minOccurs="0" nillable="true" type="tns2:Message" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="CreateSupportOrder">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="subject" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="body" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="attachments" minOccurs="0" nillable="true" type="tns2:ArrayOfAttachment"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfMessage" nillable="true" type="tns2:ArrayOfMessage"/>
-    <xsd:complexType name="Message">
-        <xsd:sequence>
-            <xsd:element name="Attachments" minOccurs="0" nillable="true" type="tns2:ArrayOfAttachment"/>
-            <xsd:element name="Body" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Created" minOccurs="0" type="xsd:dateTime"/>
-            <xsd:element name="Subject" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Type" minOccurs="0" type="tns2:MessageType"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="CreateSupportOrderResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateSupportOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Message" nillable="true" type="tns2:Message"/>
-    <xsd:complexType name="ArrayOfAttachment">
-        <xsd:sequence>
-            <xsd:element name="Attachment" minOccurs="0" nillable="true" type="tns2:Attachment" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="UploadMessage">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="sessionId" nillable="true" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="orderId" nillable="true" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="message" nillable="true" type="tns2:Message"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfAttachment" nillable="true" type="tns2:ArrayOfAttachment"/>
-    <xsd:complexType name="Attachment">
-        <xsd:sequence>
-            <xsd:element name="Data" minOccurs="0" nillable="true" type="xsd:base64Binary"/>
-            <xsd:element name="FileName" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="UploadMessageResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="UploadMessageResult" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Attachment" nillable="true" type="tns2:Attachment"/>
-    <xsd:simpleType name="MessageType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Message_to_Partner"/>
-            <xsd:enumeration value="Documentation_Request"/>
-            <xsd:enumeration value="Order_mail"/>
-            <xsd:enumeration value="Partner_Response"/>
-            <xsd:enumeration value="Support"/>
-            <xsd:enumeration value="Document"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="MessageType" nillable="true" type="tns2:MessageType"/>
-    <xsd:element name="ValidateOrder">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="order" minOccurs="0" nillable="true" type="tns2:Order"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="ValidateOrderResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="ValidateOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="UploadDocumentation">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="fileName" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="content" minOccurs="0" nillable="true" type="xsd:base64Binary"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="UploadDocumentationResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="UploadDocumentationResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateSupportOrder">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="subject" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="body" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="attachments" minOccurs="0" nillable="true" type="tns2:ArrayOfAttachment"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateSupportOrderResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateSupportOrderResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="orderId" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetDomain">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="domainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetDomainResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetDomainResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="domain" minOccurs="0" nillable="true" type="tns2:Domain"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchDomain">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="SearchCriteria">
-        <xsd:sequence>
-            <xsd:element name="Clauses" minOccurs="0" nillable="true" type="tns2:ArrayOfClause"/>
-            <xsd:element name="Mode" minOccurs="0" type="tns2:SearchModeType"/>
-            <xsd:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Withoutstates" minOccurs="0" nillable="true" type="q1:ArrayOfstring"/>
-            <xsd:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Withstates" minOccurs="0" nillable="true" type="q1:ArrayOfstring"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="GetDomain">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="domainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="SearchCriteria" nillable="true" type="tns2:SearchCriteria"/>
-    <xsd:complexType name="ArrayOfClause">
-        <xsd:sequence>
-            <xsd:element name="Clause" minOccurs="0" nillable="true" type="tns2:Clause" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="GetDomainResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetDomainResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="domain" minOccurs="0" nillable="true" type="tns2:Domain"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfClause" nillable="true" type="tns2:ArrayOfClause"/>
-    <xsd:complexType name="Clause">
-        <xsd:sequence>
-            <xsd:element name="Attribute" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Operator" minOccurs="0" type="tns2:SearchOperatorType"/>
-            <xsd:element name="Value" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="SearchDomain">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="Clause" nillable="true" type="tns2:Clause"/>
-    <xsd:simpleType name="SearchOperatorType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Is"/>
-            <xsd:enumeration value="IsNot"/>
-            <xsd:enumeration value="Like"/>
-            <xsd:enumeration value="NotLike"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="SearchOperatorType" nillable="true" type="tns2:SearchOperatorType"/>
-    <xsd:simpleType name="SearchModeType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Strict"/>
-            <xsd:enumeration value="Filter"/>
-            <xsd:enumeration value="Any"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="SearchModeType" nillable="true" type="tns2:SearchModeType"/>
-    <xsd:element name="SearchDomainResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="SearchDomainResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="domains" minOccurs="0" nillable="true" type="tns2:ArrayOfDomain"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfDomain">
-        <xsd:sequence>
-            <xsd:element name="Domain" minOccurs="0" nillable="true" type="tns2:Domain" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="SearchCriteria">
+    <xsd:sequence>
+      <xsd:element name="Clauses" minOccurs="0" nillable="true" type="tns2:ArrayOfClause"/>
+      <xsd:element name="Mode" minOccurs="0" type="tns2:SearchModeType"/>
+      <xsd:element name="Withoutstates" minOccurs="0" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:element name="Withstates" minOccurs="0" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchCriteria" nillable="true" type="tns2:SearchCriteria"/>
+  <xsd:complexType name="ArrayOfClause">
+    <xsd:sequence>
+      <xsd:element name="Clause" minOccurs="0" nillable="true" type="tns2:Clause" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfClause" nillable="true" type="tns2:ArrayOfClause"/>
+  <xsd:complexType name="Clause">
+    <xsd:sequence>
+      <xsd:element name="Attribute" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Operator" minOccurs="0" type="tns2:SearchOperatorType"/>
+      <xsd:element name="Value" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Clause" nillable="true" type="tns2:Clause"/>
+  <xsd:simpleType name="SearchOperatorType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Is"/>
+      <xsd:enumeration value="IsNot"/>
+      <xsd:enumeration value="Like"/>
+      <xsd:enumeration value="NotLike"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="SearchOperatorType" nillable="true" type="tns2:SearchOperatorType"/>
+  <xsd:simpleType name="SearchModeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Strict"/>
+      <xsd:enumeration value="Filter"/>
+      <xsd:enumeration value="Any"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="SearchModeType" nillable="true" type="tns2:SearchModeType"/>
+  <xsd:element name="SearchDomainResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SearchDomainResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="domains" minOccurs="0" nillable="true" type="tns2:ArrayOfDomain"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfDomain" nillable="true" type="tns2:ArrayOfDomain"/>
-    <xsd:element name="Whois">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="domainName" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="WhoisResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="WhoisResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="whoisData" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfString">
-        <xsd:sequence>
-            <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfDomain">
+    <xsd:sequence>
+      <xsd:element name="Domain" minOccurs="0" nillable="true" type="tns2:Domain" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfDomain" nillable="true" type="tns2:ArrayOfDomain"/>
+  <xsd:element name="Whois">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="domainName" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfString" nillable="true" type="tns2:ArrayOfString"/>
-    <xsd:element name="AvailabilityCheck">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="domains" minOccurs="0" nillable="true" type="tns2:ArrayOfString"/>
-                <xsd:element minOccurs="0" name="tlds" nillable="true" type="tns2:ArrayOfString"/>
-                <xsd:element name="quality" minOccurs="0" type="tns2:QualityType"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:simpleType name="QualityType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Fast"/>
-            <xsd:enumeration value="Smart"/>
-            <xsd:enumeration value="SmartLive"/>
-            <xsd:enumeration value="Live"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    <xsd:element name="QualityType" nillable="true" type="tns2:QualityType"/>
-    <xsd:element name="AvailabilityCheckResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="AvailabilityCheckResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="results" minOccurs="0" nillable="true" type="tns2:ArrayOfAvailabilityCheckResult"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfAvailabilityCheckResult">
-        <xsd:sequence>
-            <xsd:element name="AvailabilityCheckResult" minOccurs="0" nillable="true" type="tns2:AvailabilityCheckResult" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="WhoisResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="WhoisResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="whoisData" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfAvailabilityCheckResult" nillable="true" type="tns2:ArrayOfAvailabilityCheckResult"/>
-    <xsd:complexType name="AvailabilityCheckResult">
-        <xsd:sequence>
-            <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Quality" minOccurs="0" type="tns2:QualityType"/>
-            <xsd:element name="StatusCode" minOccurs="0" type="xsd:int"/>
-            <xsd:element name="StatusMessage" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfString">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfString" nillable="true" type="tns2:ArrayOfString"/>
+  <xsd:element name="AvailabilityCheck">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="domains" minOccurs="0" nillable="true" type="tns2:ArrayOfString"/>
+        <xsd:element minOccurs="0" name="tlds" nillable="true" type="tns2:ArrayOfString"/>
+        <xsd:element name="quality" minOccurs="0" type="tns2:QualityType"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="AvailabilityCheckResult" nillable="true" type="tns2:AvailabilityCheckResult"/>
-    <xsd:element name="GetRegistrant">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="registrantHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetRegistrantResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateRegistrant">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateRegistrantResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteRegistrant">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="registrantHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteRegistrantResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="DeleteRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchRegistrant">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchRegistrantResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="SearchRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="registrants" minOccurs="0" nillable="true" type="tns2:ArrayOfRegistrant"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfRegistrant">
-        <xsd:sequence>
-            <xsd:element name="Registrant" minOccurs="0" nillable="true" type="tns2:Registrant" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:simpleType name="QualityType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Fast" />
+      <xsd:enumeration value="Smart" />
+      <xsd:enumeration value="SmartLive" />
+      <xsd:enumeration value="Live" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="QualityType" nillable="true" type="tns2:QualityType"/>
+  <xsd:element name="AvailabilityCheckResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AvailabilityCheckResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="results" minOccurs="0" nillable="true" type="tns2:ArrayOfAvailabilityCheckResult"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfRegistrant" nillable="true" type="tns2:ArrayOfRegistrant"/>
-    <xsd:element name="GetContact">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="contactHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetContactResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateContact">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateContactResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="UpdateContact">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="UpdateContactResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="UpdateContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteContact">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="contactHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteContactResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="DeleteContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchContact">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchContactResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="SearchContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="contacts" minOccurs="0" nillable="true" type="tns2:ArrayOfContact"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfContact">
-        <xsd:sequence>
-            <xsd:element name="Contact" minOccurs="0" nillable="true" type="tns2:Contact" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfAvailabilityCheckResult">
+    <xsd:sequence>
+      <xsd:element name="AvailabilityCheckResult" minOccurs="0" nillable="true" type="tns2:AvailabilityCheckResult" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfAvailabilityCheckResult" nillable="true" type="tns2:ArrayOfAvailabilityCheckResult"/>
+  <xsd:complexType name="AvailabilityCheckResult">
+    <xsd:sequence>
+      <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Quality" minOccurs="0" type="tns2:QualityType"/>
+      <xsd:element name="StatusCode" minOccurs="0" type="xsd:int"/>
+      <xsd:element name="StatusMessage" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AvailabilityCheckResult" nillable="true" type="tns2:AvailabilityCheckResult"/>
+  <xsd:element name="GetRegistrant">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="registrantHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfContact" nillable="true" type="tns2:ArrayOfContact"/>
-    <xsd:element name="GetNameServer">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="nameServerHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetNameServerResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateNameServer">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateNameServerResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteNameServer">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="nameServerHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="DeleteNameServerResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="DeleteNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchNameServer">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchNameServerResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="SearchNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="nameServers" minOccurs="0" nillable="true" type="tns2:ArrayOfNameServer"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfNameServer">
-        <xsd:sequence>
-            <xsd:element name="NameServer" minOccurs="0" nillable="true" type="tns2:NameServer" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="GetRegistrantResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfNameServer" nillable="true" type="tns2:ArrayOfNameServer"/>
-    <xsd:element name="PollMessage">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="msgType" minOccurs="0" type="tns2:MessageType"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="PollMessageResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="PollMessageResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="msgCount" minOccurs="0" type="xsd:int"/>
-                <xsd:element name="item" minOccurs="0" nillable="true" type="tns2:QueueItem"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="QueueItem">
-        <xsd:sequence>
-            <xsd:element name="Attachments" minOccurs="0" nillable="true" type="tns2:ArrayOfAttachment"/>
-            <xsd:element name="DomainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Msg" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="MsgId" minOccurs="0" type="xsd:int"/>
-            <xsd:element name="MsgType" minOccurs="0" type="tns2:MessageType"/>
-            <xsd:element name="OrderId" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="OrderStatus" minOccurs="0" type="tns2:OrderStatusType"/>
-            <xsd:element name="StatusList" minOccurs="0" nillable="true" type="tns2:ArrayOfCallbackStatus"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="CreateRegistrant">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="QueueItem" nillable="true" type="tns2:QueueItem"/>
-    <xsd:complexType name="ArrayOfCallbackStatus">
-        <xsd:sequence>
-            <xsd:element name="CallbackStatus" minOccurs="0" nillable="true" type="tns2:CallbackStatus" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="CreateRegistrantResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="registrant" minOccurs="0" nillable="true" type="tns2:Registrant"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfCallbackStatus" nillable="true" type="tns2:ArrayOfCallbackStatus"/>
-    <xsd:complexType name="CallbackStatus">
-        <xsd:sequence>
-            <xsd:element name="Message" minOccurs="0" nillable="true" type="xsd:string"/>
-            <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="DeleteRegistrant">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="registrantHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="CallbackStatus" nillable="true" type="tns2:CallbackStatus"/>
-    <xsd:element name="AckMessage">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="msgId" minOccurs="0" type="xsd:int"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="AckMessageResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="AckMessageResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetMessageQueue">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="msgId" minOccurs="0" type="xsd:int"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetMessageQueueResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetMessageQueueResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="item" minOccurs="0" nillable="true" type="tns2:QueueItem"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetDnsSecKey">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="dnsSecKeyHandle" minOccurs="0" nillable="true" type="xsd:string"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="GetDnsSecKeyResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="GetDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateDnsSecKey">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateDnsSecKeyResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="CreateDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchDnsSecKey">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
-                <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="SearchDnsSecKeyResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="SearchDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
-                <xsd:element name="dnsSecKeys" minOccurs="0" nillable="true" type="tns2:ArrayOfDnsSecKey"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:complexType name="ArrayOfDnsSecKey">
-        <xsd:sequence>
-            <xsd:element name="DnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey" maxOccurs="unbounded"/>
-        </xsd:sequence>
+  </xsd:element>
+  <xsd:element name="DeleteRegistrantResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="DeleteRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ArrayOfDnsSecKey" nillable="true" type="tns2:ArrayOfDnsSecKey"/>
-    <xsd:element name="CreateDocumentation">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element minOccurs="0" name="sessionId" nillable="true" type="xsd:string"/>
-                <xsd:element minOccurs="0" name="attachments" nillable="true" type="tns2:ArrayOfAttachment"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="CreateDocumentationResponse">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element minOccurs="0" name="CreateDocumentationResult" nillable="true" type="tns2:Response"/>
-                <xsd:element minOccurs="0" name="documentationId" type="xsd:int"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+  </xsd:element>
+  <xsd:element name="SearchRegistrant">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchRegistrantResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SearchRegistrantResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="registrants" minOccurs="0" nillable="true" type="tns2:ArrayOfRegistrant"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfRegistrant">
+    <xsd:sequence>
+      <xsd:element name="Registrant" minOccurs="0" nillable="true" type="tns2:Registrant" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfRegistrant" nillable="true" type="tns2:ArrayOfRegistrant"/>
+  <xsd:element name="GetContact">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="contactHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetContactResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateContact">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateContactResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UpdateContact">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="contact" minOccurs="0" nillable="true" type="tns2:Contact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UpdateContactResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="UpdateContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DeleteContact">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="contactHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DeleteContactResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="DeleteContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchContact">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchContactResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SearchContactResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="contacts" minOccurs="0" nillable="true" type="tns2:ArrayOfContact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfContact">
+    <xsd:sequence>
+      <xsd:element name="Contact" minOccurs="0" nillable="true" type="tns2:Contact" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfContact" nillable="true" type="tns2:ArrayOfContact"/>
+  <xsd:element name="GetNameServer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="nameServerHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetNameServerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateNameServer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateNameServerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="nameServer" minOccurs="0" nillable="true" type="tns2:NameServer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DeleteNameServer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="nameServerHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DeleteNameServerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="DeleteNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchNameServer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchNameServerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SearchNameServerResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="nameServers" minOccurs="0" nillable="true" type="tns2:ArrayOfNameServer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfNameServer">
+    <xsd:sequence>
+      <xsd:element name="NameServer" minOccurs="0" nillable="true" type="tns2:NameServer" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfNameServer" nillable="true" type="tns2:ArrayOfNameServer"/>
+  <xsd:element name="PollMessage">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="msgType" minOccurs="0" type="tns2:MessageType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="PollMessageResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="PollMessageResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="msgCount" minOccurs="0" type="xsd:int"/>
+        <xsd:element name="item" minOccurs="0" nillable="true" type="tns2:QueueItem"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="QueueItem">
+    <xsd:sequence>
+      <xsd:element name="Attachments" minOccurs="0" nillable="true" type="tns2:ArrayOfAttachment"/>
+      <xsd:element name="DomainHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="DomainName" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Msg" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="MsgId" minOccurs="0" type="xsd:int"/>
+      <xsd:element name="MsgType" minOccurs="0" type="tns2:MessageType"/>
+      <xsd:element name="OrderId" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="OrderStatus" minOccurs="0" type="tns2:OrderStatusType"/>
+      <xsd:element name="StatusList" minOccurs="0" nillable="true" type="tns2:ArrayOfCallbackStatus"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="QueueItem" nillable="true" type="tns2:QueueItem"/>
+  <xsd:complexType name="ArrayOfCallbackStatus">
+    <xsd:sequence>
+      <xsd:element name="CallbackStatus" minOccurs="0" nillable="true" type="tns2:CallbackStatus" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfCallbackStatus" nillable="true" type="tns2:ArrayOfCallbackStatus"/>
+  <xsd:complexType name="CallbackStatus">
+    <xsd:sequence>
+      <xsd:element name="Message" minOccurs="0" nillable="true" type="xsd:string"/>
+      <xsd:element name="Status" minOccurs="0" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CallbackStatus" nillable="true" type="tns2:CallbackStatus"/>
+  <xsd:element name="AckMessage">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="msgId" minOccurs="0" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AckMessageResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AckMessageResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetMessageQueue">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="msgId" minOccurs="0" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetMessageQueueResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetMessageQueueResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="item" minOccurs="0" nillable="true" type="tns2:QueueItem"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetDnsSecKey">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="dnsSecKeyHandle" minOccurs="0" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetDnsSecKeyResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GetDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateDnsSecKey">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateDnsSecKeyResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CreateDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="dnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchDnsSecKey">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" minOccurs="0" nillable="true" type="xsd:string"/>
+        <xsd:element name="criteria" minOccurs="0" nillable="true" type="tns2:SearchCriteria"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SearchDnsSecKeyResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SearchDnsSecKeyResult" minOccurs="0" nillable="true" type="tns2:Response"/>
+        <xsd:element name="dnsSecKeys" minOccurs="0" nillable="true" type="tns2:ArrayOfDnsSecKey"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ArrayOfDnsSecKey">
+    <xsd:sequence>
+      <xsd:element name="DnsSecKey" minOccurs="0" nillable="true" type="tns2:DnsSecKey" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArrayOfDnsSecKey" nillable="true" type="tns2:ArrayOfDnsSecKey"/>
+  <xsd:element name="CreateDocumentation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="sessionId" nillable="true" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="attachments" nillable="true" type="tns2:ArrayOfAttachment"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CreateDocumentationResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" name="CreateDocumentationResult" nillable="true" type="tns2:Response"/>
+        <xsd:element minOccurs="0" name="documentationId" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
 </xsd:schema>

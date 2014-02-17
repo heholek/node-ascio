@@ -7,9 +7,14 @@ ascio.on('ready', function () {
     if(err) throw err;
     console.log(sessionid);
 
-    ascio.logout(sessionid, function(err, msg) {
+    ascio.isDomainAvailable(['ptisp'], ['pt', 'com'], function(err, msg) {
       if(err) throw err;
       console.log(msg);
+
+      ascio.logout(sessionid, function(err, msg) {
+        if(err) throw err;
+        console.log(msg);
+      });
     });
   });
 });
