@@ -7,7 +7,7 @@ ascio.on('ready', function () {
     if(err) throw err;
     console.log(sessionid);
 
-    ascio.isDomainAvailable(['ptisp'], ['pt', 'com'], function(err, msg) {
+    ascio.isDomainAvailable(['adsfafavaf'], ['pt', 'com'], function(err, msg) {
       if(err) throw err;
       console.log(msg);
 
