@@ -1,20 +1,18 @@
 var Ascio = require('../lib/ascio');
 
-var ascio = new Ascio();
+var ascio = new Ascio(process.env.ASCIO_USERNAME, process.env.ASCIO_PASSWORD);
 
 ascio.on('ready', function () {
-  ascio.login(process.env.ASCIO_USERNAME, process.env.ASCIO_PASSWORD, function(err, sessionid) {
-    if(err) throw err;
-    console.log(sessionid);
+  if(err) throw err;
+  console.log(sessionid);
 
-    ascio.isDomainAvailable(['adsfafavaf'], ['pt', 'com'], function(err, msg) {
+  ascio.isDomainAvailable(['adsfafavaf'], ['pt', 'com'], function(err, msg) {
+    if(err) throw err;
+    console.log(msg);
+
+    ascio.logout(sessionid, function(err, msg) {
       if(err) throw err;
       console.log(msg);
-
-      ascio.logout(sessionid, function(err, msg) {
-        if(err) throw err;
-        console.log(msg);
-      });
     });
   });
 });
