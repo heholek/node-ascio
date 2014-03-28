@@ -12,7 +12,7 @@ ascio.on('ready', function () {
   
   ascio.domainInfo('algarve.bike', function(err, msg) {
     if(err) throw err;
-    console.log(msg);
+    console.log(require('util').inspect(msg, { showHidden: true, depth: null }));
   });
   
 });
