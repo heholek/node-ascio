@@ -9,10 +9,18 @@ ascio.on('ready', function () {
     console.log(msg);
   });
   */
-  
-  ascio.domainInfo('algarve.bike', function(err, msg) {
+
+  /*
+  ascio.domainInfo('adsfafd.bike', function(err, msg) {
     if(err) throw err;
     console.log(require('util').inspect(msg, { showHidden: true, depth: null }));
   });
-  
+  */
+
+  /*
+  ascio.updateNS('rttrytrs.eu', ['ns5.mydnspt.net', 'ns6.mydnspt.net'], function(err, msg) {
+    if(err) throw err;
+    console.log(require('util').inspect(msg, { showHidden: true, depth: null }));
+  });
+  */
 });
