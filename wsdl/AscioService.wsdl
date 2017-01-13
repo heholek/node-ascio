@@ -1,358 +1,686 @@
-<wsdl:definitions xmlns="http://www.ascio.com/2012/01/01/AscioService" xmlns:tns2="http://www.ascio.com/2007/01" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:i0="http://www.ascio.com/2007/01" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://www.ascio.com/2012/01/01/AscioService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="AscioServices" targetNamespace="http://www.ascio.com/2012/01/01/AscioService">
-  <wsdl:types>
-    <xsd:schema targetNamespace="http://www.ascio.com/2007/01">
-      <xsd:import schemaLocation="schema.xsd" namespace="http://www.ascio.com/2007/01"/>
-    </xsd:schema>
-  </wsdl:types>
-  <wsdl:message name="IAscioServices_LogIn_InputMessage">
-    <wsdl:part name="parameters" element="tns2:LogIn"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_LogIn_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:LogInResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_LogOut_InputMessage">
-    <wsdl:part name="parameters" element="tns2:LogOut"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_LogOut_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:LogOutResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetOrder"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetOrderResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateOrder"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateOrderResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchOrder"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchOrderResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetMessages_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetMessages"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetMessages_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetMessagesResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_ValidateOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns2:ValidateOrder"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_ValidateOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:ValidateOrderResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UploadDocumentation_InputMessage">
-    <wsdl:part name="parameters" element="tns2:UploadDocumentation"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UploadDocumentation_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:UploadDocumentationResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateSupportOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateSupportOrder"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateSupportOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateSupportOrderResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UploadMessage_InputMessage">
-    <wsdl:part name="parameters" element="tns2:UploadMessage"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UploadMessage_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:UploadMessageResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetDomain_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetDomain"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetDomain_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetDomainResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchDomain_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchDomain"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchDomain_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchDomainResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_Whois_InputMessage">
-    <wsdl:part name="parameters" element="tns2:Whois"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_Whois_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:WhoisResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_AvailabilityCheck_InputMessage">
-    <wsdl:part name="parameters" element="tns2:AvailabilityCheck"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_AvailabilityCheck_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:AvailabilityCheckResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetRegistrant_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetRegistrant"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetRegistrant_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetRegistrantResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateRegistrant_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateRegistrant"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateRegistrant_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateRegistrantResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteRegistrant_InputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteRegistrant"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteRegistrant_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteRegistrantResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchRegistrant_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchRegistrant"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchRegistrant_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchRegistrantResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetContact_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetContact"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetContactResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateContact_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateContact"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateContactResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UpdateContact_InputMessage">
-    <wsdl:part name="parameters" element="tns2:UpdateContact"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_UpdateContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:UpdateContactResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteContact_InputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteContact"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteContactResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchContact_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchContact"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchContact_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchContactResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetNameServer_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetNameServer"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetNameServer_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetNameServerResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateNameServer_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateNameServer"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateNameServer_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateNameServerResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteNameServer_InputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteNameServer"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_DeleteNameServer_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:DeleteNameServerResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchNameServer_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchNameServer"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchNameServer_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchNameServerResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_PollMessage_InputMessage">
-    <wsdl:part name="parameters" element="tns2:PollMessage"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_PollMessage_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:PollMessageResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_AckMessage_InputMessage">
-    <wsdl:part name="parameters" element="tns2:AckMessage"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_AckMessage_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:AckMessageResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetMessageQueue_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetMessageQueue"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetMessageQueue_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetMessageQueueResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetDnsSecKey_InputMessage">
-    <wsdl:part name="parameters" element="tns2:GetDnsSecKey"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_GetDnsSecKey_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:GetDnsSecKeyResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateDnsSecKey_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateDnsSecKey"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateDnsSecKey_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateDnsSecKeyResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchDnsSecKey_InputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchDnsSecKey"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_SearchDnsSecKey_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:SearchDnsSecKeyResponse"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateDocumentation_InputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateDocumentation"/>
-  </wsdl:message>
-  <wsdl:message name="IAscioServices_CreateDocumentation_OutputMessage">
-    <wsdl:part name="parameters" element="tns2:CreateDocumentationResponse"/>
-  </wsdl:message>  
-
-  <wsdl:portType name="IAscioServices">
-    <wsdl:operation name="LogIn">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogIn" message="tns:IAscioServices_LogIn_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogInResponse" message="tns:IAscioServices_LogIn_OutputMessage"/>
+<wsdl:definitions xmlns="http://www.ascio.com/2012/01/01/AscioService" xmlns:tns2="http://www.ascio.com/2007/01" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:i0="http://www.ascio.com/2007/01" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://www.ascio.com/2012/01/01/AscioService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" name="AscioServices" targetNamespace="http://www.ascio.com/2012/01/01/AscioService">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.ascio.com/2007/012">
+            <xsd:import schemaLocation="schema.xsd" namespace="http://www.ascio.com/2007/01"/>
+        </xsd:schema>
+    </wsdl:types>
+      <wsdl:message name="DefaultInputMessageHeaders">
+    <wsdl:part xmlns:q1="http://www.ascio.com/2013/02" name="SecurityHeaderDetails" element="tns2:SecurityHeaderDetails" />
+    <wsdl:part xmlns:q1="http://www.ascio.com/2013/02" name="ImpersonationHeaderDetails" element="tns2:ImpersonationHeaderDetails" />
+  </wsdl:message>
+    <wsdl:message name="IAscioServices_LogIn_InputMessage">
+        <wsdl:part name="parameters" element="tns2:LogIn"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_LogIn_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:LogInResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_LogOut_InputMessage">
+        <wsdl:part name="parameters" element="tns2:LogOut"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_LogOut_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:LogOutResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetMessages_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetMessages"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetMessages_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetMessagesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_ValidateOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns2:ValidateOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_ValidateOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:ValidateOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_UploadDocumentation_InputMessage">
+        <wsdl:part name="parameters" element="tns2:UploadDocumentation"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_UploadDocumentation_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:UploadDocumentationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateSupportOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateSupportOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateSupportOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateSupportOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetDomain_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetDomain"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetDomain_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetDomainResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchDomain_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchDomain"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchDomain_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchDomainResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_Whois_InputMessage">
+        <wsdl:part name="parameters" element="tns2:Whois"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_Whois_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:WhoisResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_AvailabilityCheck_InputMessage">
+        <wsdl:part name="parameters" element="tns2:AvailabilityCheck"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_AvailabilityCheck_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:AvailabilityCheckResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetRegistrant_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetRegistrant"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetRegistrant_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetRegistrantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateRegistrant_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateRegistrant"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateRegistrant_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateRegistrantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteRegistrant_InputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteRegistrant"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteRegistrant_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteRegistrantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchRegistrant_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchRegistrant"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchRegistrant_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchRegistrantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetContact_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetContact"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetContact_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetContactResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateContact_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateContact"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateContact_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateContactResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_UpdateContact_InputMessage">
+        <wsdl:part name="parameters" element="tns2:UpdateContact"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_UpdateContact_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:UpdateContactResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteContact_InputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteContact"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteContact_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteContactResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchContact_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchContact"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchContact_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchContactResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetNameServer_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetNameServer"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetNameServer_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetNameServerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateNameServer_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateNameServer"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateNameServer_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateNameServerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteNameServer_InputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteNameServer"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_DeleteNameServer_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:DeleteNameServerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchNameServer_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchNameServer"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchNameServer_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchNameServerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_PollMessage_InputMessage">
+        <wsdl:part name="parameters" element="tns2:PollMessage"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_PollMessage_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:PollMessageResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_AckMessage_InputMessage">
+        <wsdl:part name="parameters" element="tns2:AckMessage"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_AckMessage_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:AckMessageResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetMessageQueue_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetMessageQueue"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetMessageQueue_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetMessageQueueResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetDnsSecKey_InputMessage">
+        <wsdl:part name="parameters" element="tns2:GetDnsSecKey"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetDnsSecKey_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:GetDnsSecKeyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateDnsSecKey_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateDnsSecKey"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateDnsSecKey_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateDnsSecKeyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchDnsSecKey_InputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchDnsSecKey"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_SearchDnsSecKey_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:SearchDnsSecKeyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateDocumentation_InputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateDocumentation"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_CreateDocumentation_OutputMessage">
+        <wsdl:part name="parameters" element="tns2:CreateDocumentationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IAscioServices_GetRegistrantVerificationInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns2:GetRegistrantVerificationInfo"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_GetRegistrantVerificationInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns2:GetRegistrantVerificationInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_DoRegistrantVerification_InputMessage">
+    <wsdl:part name="parameters" element="tns2:DoRegistrantVerification"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_DoRegistrantVerification_OutputMessage">
+    <wsdl:part name="parameters" element="tns2:DoRegistrantVerificationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_GetRegistrantVerificationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns2:GetRegistrantVerificationStatus"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_GetRegistrantVerificationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns2:GetRegistrantVerificationStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_UploadRegistrantVerificationMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns2:UploadRegistrantVerificationMessage"/>
+  </wsdl:message>
+  <wsdl:message name="IAscioServices_UploadRegistrantVerificationMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns2:UploadRegistrantVerificationMessageResponse"/>
+  </wsdl:message>
+    <wsdl:portType name="IAscioServices">
+        <wsdl:operation name="LogIn">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogIn" message="tns:IAscioServices_LogIn_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogInResponse" message="tns:IAscioServices_LogIn_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="LogOut">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogOut" message="tns:IAscioServices_LogOut_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogOutResponse" message="tns:IAscioServices_LogOut_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrder">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetOrder" message="tns:IAscioServices_GetOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetOrderResponse" message="tns:IAscioServices_GetOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOrder">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateOrder" message="tns:IAscioServices_CreateOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateOrderResponse" message="tns:IAscioServices_CreateOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchOrder">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/SearchOrder" message="tns:IAscioServices_SearchOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/SearchOrderResponse" message="tns:IAscioServices_SearchOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetMessages">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetMessages" message="tns:IAscioServices_GetMessages_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetMessagesResponse" message="tns:IAscioServices_GetMessages_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateOrder">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/ValidateOrder" message="tns:IAscioServices_ValidateOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/ValidateOrderResponse" message="tns:IAscioServices_ValidateOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadDocumentation">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadDocumentation" message="tns:IAscioServices_UploadDocumentation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadDocumentationResponse" message="tns:IAscioServices_UploadDocumentation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateSupportOrder">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrder" message="tns:IAscioServices_CreateSupportOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrderResponse" message="tns:IAscioServices_CreateSupportOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDomain">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/GetDomain" message="tns:IAscioServices_GetDomain_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/GetDomainResponse" message="tns:IAscioServices_GetDomain_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchDomain">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/SearchDomain" message="tns:IAscioServices_SearchDomain_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/SearchDomainResponse" message="tns:IAscioServices_SearchDomain_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Whois">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/Whois" message="tns:IAscioServices_Whois_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/WhoisResponse" message="tns:IAscioServices_Whois_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AvailabilityCheck">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheck" message="tns:IAscioServices_AvailabilityCheck_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheckResponse" message="tns:IAscioServices_AvailabilityCheck_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRegistrant">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrant" message="tns:IAscioServices_GetRegistrant_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantResponse" message="tns:IAscioServices_GetRegistrant_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateRegistrant">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrant" message="tns:IAscioServices_CreateRegistrant_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrantResponse" message="tns:IAscioServices_CreateRegistrant_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteRegistrant">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrant" message="tns:IAscioServices_DeleteRegistrant_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrantResponse" message="tns:IAscioServices_DeleteRegistrant_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchRegistrant">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrant" message="tns:IAscioServices_SearchRegistrant_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrantResponse" message="tns:IAscioServices_SearchRegistrant_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetContact">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/GetContact" message="tns:IAscioServices_GetContact_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/GetContactResponse" message="tns:IAscioServices_GetContact_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateContact">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/CreateContact" message="tns:IAscioServices_CreateContact_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/CreateContactResponse" message="tns:IAscioServices_CreateContact_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateContact">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/UpdateContact" message="tns:IAscioServices_UpdateContact_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/UpdateContactResponse" message="tns:IAscioServices_UpdateContact_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteContact">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/DeleteContact" message="tns:IAscioServices_DeleteContact_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/DeleteContactResponse" message="tns:IAscioServices_DeleteContact_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchContact">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/SearchContact" message="tns:IAscioServices_SearchContact_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/SearchContactResponse" message="tns:IAscioServices_SearchContact_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetNameServer">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/GetNameServer" message="tns:IAscioServices_GetNameServer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/GetNameServerResponse" message="tns:IAscioServices_GetNameServer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateNameServer">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/CreateNameServer" message="tns:IAscioServices_CreateNameServer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/CreateNameServerResponse" message="tns:IAscioServices_CreateNameServer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteNameServer">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/DeleteNameServer" message="tns:IAscioServices_DeleteNameServer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/DeleteNameServerResponse" message="tns:IAscioServices_DeleteNameServer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchNameServer">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/SearchNameServer" message="tns:IAscioServices_SearchNameServer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/SearchNameServerResponse" message="tns:IAscioServices_SearchNameServer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="PollMessage">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/PollMessage" message="tns:IAscioServices_PollMessage_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/PollMessageResponse" message="tns:IAscioServices_PollMessage_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AckMessage">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/AckMessage" message="tns:IAscioServices_AckMessage_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/AckMessageResponse" message="tns:IAscioServices_AckMessage_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetMessageQueue">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueue" message="tns:IAscioServices_GetMessageQueue_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueueResponse" message="tns:IAscioServices_GetMessageQueue_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDnsSecKey">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKey" message="tns:IAscioServices_GetDnsSecKey_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKeyResponse" message="tns:IAscioServices_GetDnsSecKey_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDnsSecKey">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKey" message="tns:IAscioServices_CreateDnsSecKey_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKeyResponse" message="tns:IAscioServices_CreateDnsSecKey_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchDnsSecKey">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKey" message="tns:IAscioServices_SearchDnsSecKey_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKeyResponse" message="tns:IAscioServices_SearchDnsSecKey_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDocumentation">
+            <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateDocumentation" message="tns:IAscioServices_CreateDocumentation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateDocumentationResponse" message="tns:IAscioServices_CreateDocumentation_OutputMessage"/>
+        </wsdl:operation>
+           <wsdl:operation name="GetRegistrantVerificationInfo">
+          <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationInfo" message="tns:IAscioServices_GetRegistrantVerificationInfo_InputMessage"/>
+          <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationInfoResponse" message="tns:IAscioServices_GetRegistrantVerificationInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DoRegistrantVerification">
+          <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DoRegistrantVerification" message="tns:IAscioServices_DoRegistrantVerification_InputMessage"/>
+          <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DoRegistrantVerificationResponse" message="tns:IAscioServices_DoRegistrantVerification_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRegistrantVerificationStatus">
+          <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationStatus" message="tns:IAscioServices_GetRegistrantVerificationStatus_InputMessage"/>
+          <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationStatusResponse" message="tns:IAscioServices_GetRegistrantVerificationStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadRegistrantVerificationMessage">
+          <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/UploadRegistrantVerificationMessage" message="tns:IAscioServices_UploadRegistrantVerificationMessage_InputMessage"/>
+          <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/UploadRegistrantVerificationMessageResponse" message="tns:IAscioServices_UploadRegistrantVerificationMessage_OutputMessage"/>
     </wsdl:operation>
-    <wsdl:operation name="LogOut">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogOut" message="tns:IAscioServices_LogOut_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/ISessionService/LogOutResponse" message="tns:IAscioServices_LogOut_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetOrder">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetOrder" message="tns:IAscioServices_GetOrder_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetOrderResponse" message="tns:IAscioServices_GetOrder_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateOrder">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateOrder" message="tns:IAscioServices_CreateOrder_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateOrderResponse" message="tns:IAscioServices_CreateOrder_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchOrder">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/SearchOrder" message="tns:IAscioServices_SearchOrder_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/SearchOrderResponse" message="tns:IAscioServices_SearchOrder_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetMessages">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetMessages" message="tns:IAscioServices_GetMessages_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/GetMessagesResponse" message="tns:IAscioServices_GetMessages_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="ValidateOrder">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/ValidateOrder" message="tns:IAscioServices_ValidateOrder_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/ValidateOrderResponse" message="tns:IAscioServices_ValidateOrder_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="UploadDocumentation">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadDocumentation" message="tns:IAscioServices_UploadDocumentation_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadDocumentationResponse" message="tns:IAscioServices_UploadDocumentation_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateSupportOrder">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrder" message="tns:IAscioServices_CreateSupportOrder_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrderResponse" message="tns:IAscioServices_CreateSupportOrder_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="UploadMessage">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadMessage" message="tns:IAscioServices_UploadMessage_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/UploadMessageResponse" message="tns:IAscioServices_UploadMessage_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetDomain">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/GetDomain" message="tns:IAscioServices_GetDomain_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/GetDomainResponse" message="tns:IAscioServices_GetDomain_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchDomain">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/SearchDomain" message="tns:IAscioServices_SearchDomain_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/SearchDomainResponse" message="tns:IAscioServices_SearchDomain_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="Whois">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/Whois" message="tns:IAscioServices_Whois_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/WhoisResponse" message="tns:IAscioServices_Whois_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="AvailabilityCheck">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheck" message="tns:IAscioServices_AvailabilityCheck_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheckResponse" message="tns:IAscioServices_AvailabilityCheck_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetRegistrant">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrant" message="tns:IAscioServices_GetRegistrant_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantResponse" message="tns:IAscioServices_GetRegistrant_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateRegistrant">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrant" message="tns:IAscioServices_CreateRegistrant_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrantResponse" message="tns:IAscioServices_CreateRegistrant_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteRegistrant">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrant" message="tns:IAscioServices_DeleteRegistrant_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrantResponse" message="tns:IAscioServices_DeleteRegistrant_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchRegistrant">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrant" message="tns:IAscioServices_SearchRegistrant_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrantResponse" message="tns:IAscioServices_SearchRegistrant_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetContact">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/GetContact" message="tns:IAscioServices_GetContact_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/GetContactResponse" message="tns:IAscioServices_GetContact_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateContact">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/CreateContact" message="tns:IAscioServices_CreateContact_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/CreateContactResponse" message="tns:IAscioServices_CreateContact_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateContact">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/UpdateContact" message="tns:IAscioServices_UpdateContact_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/UpdateContactResponse" message="tns:IAscioServices_UpdateContact_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteContact">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/DeleteContact" message="tns:IAscioServices_DeleteContact_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/DeleteContactResponse" message="tns:IAscioServices_DeleteContact_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchContact">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IContactService/SearchContact" message="tns:IAscioServices_SearchContact_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IContactService/SearchContactResponse" message="tns:IAscioServices_SearchContact_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetNameServer">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/GetNameServer" message="tns:IAscioServices_GetNameServer_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/GetNameServerResponse" message="tns:IAscioServices_GetNameServer_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNameServer">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/CreateNameServer" message="tns:IAscioServices_CreateNameServer_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/CreateNameServerResponse" message="tns:IAscioServices_CreateNameServer_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteNameServer">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/DeleteNameServer" message="tns:IAscioServices_DeleteNameServer_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/DeleteNameServerResponse" message="tns:IAscioServices_DeleteNameServer_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchNameServer">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/INameServerService/SearchNameServer" message="tns:IAscioServices_SearchNameServer_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/INameServerService/SearchNameServerResponse" message="tns:IAscioServices_SearchNameServer_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="PollMessage">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/PollMessage" message="tns:IAscioServices_PollMessage_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/PollMessageResponse" message="tns:IAscioServices_PollMessage_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="AckMessage">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/AckMessage" message="tns:IAscioServices_AckMessage_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/AckMessageResponse" message="tns:IAscioServices_AckMessage_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetMessageQueue">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueue" message="tns:IAscioServices_GetMessageQueue_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueueResponse" message="tns:IAscioServices_GetMessageQueue_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="GetDnsSecKey">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKey" message="tns:IAscioServices_GetDnsSecKey_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKeyResponse" message="tns:IAscioServices_GetDnsSecKey_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateDnsSecKey">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKey" message="tns:IAscioServices_CreateDnsSecKey_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKeyResponse" message="tns:IAscioServices_CreateDnsSecKey_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="SearchDnsSecKey">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKey" message="tns:IAscioServices_SearchDnsSecKey_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKeyResponse" message="tns:IAscioServices_SearchDnsSecKey_OutputMessage"/>
-    </wsdl:operation>
-    <wsdl:operation name="CreateDocumentation">
-      <wsdl:input wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateDocumentation" message="tns:IAscioServices_CreateDocumentation_InputMessage"/>
-      <wsdl:output wsaw:Action="http://www.ascio.com/2007/01/IOrderService/CreateDocumentationResponse" message="tns:IAscioServices_CreateDocumentation_OutputMessage"/>
-    </wsdl:operation>
-  </wsdl:portType>
-  
-  
-  <wsdl:binding name="BasicHttpBinding_IAscioServices" type="i0:IAscioServices">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="LogIn">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/ISessionService/LogIn" style="document"/>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IAscioServices" type="tns:IAscioServices">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="LogIn">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/ISessionService/LogIn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LogOut">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/ISessionService/LogOut" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrder">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/GetOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOrder">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchOrder">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/SearchOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMessages">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/GetMessages" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateOrder">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/ValidateOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadDocumentation">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/UploadDocumentation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateSupportOrder">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDomain">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/GetDomain" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchDomain">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/SearchDomain" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Whois">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/Whois" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AvailabilityCheck">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheck" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRegistrant">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateRegistrant">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteRegistrant">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchRegistrant">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetContact">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/GetContact" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateContact">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/CreateContact" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateContact">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/UpdateContact" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteContact">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/DeleteContact" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchContact">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/SearchContact" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetNameServer">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/GetNameServer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateNameServer">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/CreateNameServer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteNameServer">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/DeleteNameServer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchNameServer">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/SearchNameServer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PollMessage">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/PollMessage" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AckMessage">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/AckMessage" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMessageQueue">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueue" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDnsSecKey">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKey" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDnsSecKey">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKey" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchDnsSecKey">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKey" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDocumentation">
+            <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateDocumentation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+            <wsdl:operation name="GetRegistrantVerificationInfo">
+      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationInfo" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -360,8 +688,8 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LogOut">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/ISessionService/LogOut" style="document"/>
+    <wsdl:operation name="DoRegistrantVerification">
+      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/DoRegistrantVerification" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -369,8 +697,8 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOrder">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/GetOrder" style="document"/>
+    <wsdl:operation name="GetRegistrantVerificationStatus">
+      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrantVerificationStatus" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -378,134 +706,8 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateOrder">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateOrder" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>    
-    <wsdl:operation name="SearchOrder">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/SearchOrder" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation> 
-    <wsdl:operation name="GetMessages">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/GetMessages" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidateOrder">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/ValidateOrder" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UploadDocumentation">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/UploadDocumentation" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateSupportOrder">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateSupportOrder" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UploadMessage">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/UploadMessage" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDomain">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/GetDomain" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchDomain">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/SearchDomain" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Whois">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/Whois" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AvailabilityCheck">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDomainService/AvailabilityCheck" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetRegistrant">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/GetRegistrant" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateRegistrant">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/CreateRegistrant" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteRegistrant">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/DeleteRegistrant" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchRegistrant">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/SearchRegistrant" style="document"/>
+    <wsdl:operation name="UploadRegistrantVerificationMessage">
+      <soap:operation soapAction="http://www.ascio.com/2007/01/IRegistrantService/UploadRegistrantVerificationMessage" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -522,135 +724,124 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateContact">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/CreateContact" style="document"/>
+    </wsdl:binding>
+     <wsdl:binding name="AscioServiceBinding" type="tns:IAscioService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="CreateOrder" style="document" />
       <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateOrder">
+      <soap:operation soapAction="ValidateOrder" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="GetOrder" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="GetOrders" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMark">
+      <soap:operation soapAction="GetMark" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="GetMessages" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PollQueue">
+      <soap:operation soapAction="PollQueue" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AckQueueMessage">
+      <soap:operation soapAction="AckQueueMessage" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueMessage">
+      <soap:operation soapAction="GetQueueMessage" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal" />
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentation">
+      <soap:operation soapAction="UploadDocumentation" style="document"/>
+      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal"/>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateContact">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/UpdateContact" style="document"/>
+    <wsdl:operation name="GetRegistrantVerificationStatus">
+      <soap:operation soapAction="GetRegistrantVerificationStatus" style="document"/>
       <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteContact">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/DeleteContact" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchContact">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IContactService/SearchContact" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetNameServer">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/GetNameServer" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNameServer">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/CreateNameServer" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteNameServer">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/DeleteNameServer" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchNameServer">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/INameServerService/SearchNameServer" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PollMessage">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/PollMessage" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AckMessage">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/AckMessage" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetMessageQueue">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IMessageQueueService/GetMessageQueue" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDnsSecKey">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/GetDnsSecKey" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateDnsSecKey">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/CreateDnsSecKey" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchDnsSecKey">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IDnsSecKeyService/SearchDnsSecKey" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateDocumentation">
-      <soap:operation soapAction="http://www.ascio.com/2007/01/IOrderService/CreateDocumentation" style="document"/>
-      <wsdl:input>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="SecurityHeaderDetails" use="literal"/>
+        <soap:header message="tns:DefaultInputMessageHeaders" part="ImpersonationHeaderDetails" use="literal" />
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
@@ -658,9 +849,9 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="AscioServices">
-    <wsdl:port name="BasicHttpBinding_IAscioServices" binding="tns:BasicHttpBinding_IAscioServices">
-      <soap:address location="https://aws.ascio.com/2012/01/01/AscioService.svc"/>
-    </wsdl:port>
-  </wsdl:service>
+    <wsdl:service name="AscioServices">
+        <wsdl:port name="BasicHttpBinding_IAscioServices" binding="tns:BasicHttpBinding_IAscioServices">
+            <soap:address location="https://aws.ascio.com/2012/01/01/AscioService.svc"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>
